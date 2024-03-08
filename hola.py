@@ -1,1 +1,2 @@
-holi UWU
+holi ="UWU"
+print (holi)
