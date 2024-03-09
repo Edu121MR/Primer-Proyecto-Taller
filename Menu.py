@@ -1,23 +1,35 @@
-def menu():
+import time as t
+ListaJugadores = []
+def RegistroJugadores(nombre: str):
+    ListaJugadores.append(nombre)
+
+def Menu():
     while True:
-        print("Menú")
-        print("1 > Insertar vehículos \n2 > Cambiar estado \n3 > Alquilar vehículo \n4 > Reportes \n5 > Salir del juego")
-        opcionSelec = int(input("Ingrese el código de la opción que desea abrir: "))
+        print (chr(27) + "[2J")
+        print("!!Juego de Memória!!")
+        print("1) Registrar Jugadores")
+        print("2) Jugar")
+        print("3) Salir del Juego\n")
+        opt= int(input("Que funcion desea realizar: "))
+        
+        if opt == 1:
+            RegistrarContacto()
+        elif opt == 2:
+            pass
+        elif opt == 3:
+            print("Gracias por jugar")
+            break
+    print (chr(27) + "[2J")
 
-        if opcionSelec == 1:
-            print("¡Bienvenido a insertar vehículo!")
-        elif opcionSelec == 2:
-            print("¡Bienvenido a cambiar estado!")
-            # aquí se llama una función
-        elif opcionSelec == 3:
-            print("¡Bienvenido a alquilar vehículo!")
-            # aquí se llama una función
-        elif opcionSelec == 4:
-            print("¡Bienvenido a reportes!")
-            # aquí se llama una función
-        elif opcionSelec == 5:
-            quit()
-        else:
-            input("No a ingresado un código correcto. Pulse ENTER para continuar.")
-
-menu()
+def RegistrarContacto():
+    print (chr(27) + "[2J")
+    while True:
+        name=input ("Ingrese el nombre del o los jugadores, cuando termine de escribir los nombres escriba salir:")
+        if name == "salir":
+            break
+        elif name != "salir": 
+            RegistroJugadores(name)
+    print (chr(27) + "[2J")
+    print("Los jugadores registrados son: ", ListaJugadores)   
+    t.sleep(5) 
+Menu()
