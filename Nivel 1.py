@@ -1,5 +1,6 @@
 import random as r
 import time
+import ARMem as ar
 lista=[0,1,2,3,4]
 lista1=[]
 
@@ -9,7 +10,7 @@ def SortLista(lista):
         lista1.append(random)
     return lista1
 (SortLista(lista))
-
+tiempo_total=0
 
 def SubLista(index):
     if index < len(lista1):
@@ -19,6 +20,12 @@ def SubLista(index):
         print("Ordene los marcadores en el orden que se le indicó!")
         time.sleep(2)
         print (chr(27) + "[2J")
+    for x in lista1:
+        tiempo_partida=round(ar.start_sorting(x,flip_image=True,show_images=True, show_coordinates=False, show_ids=False, show_identified_marker=False)  ,2)
+        tiempo_total+=tiempo_partida
+        print(f'Tiempo de partida: {tiempo_partida}s')
 
 
 SubLista(1)
+def Nivel1 ():
+    pass

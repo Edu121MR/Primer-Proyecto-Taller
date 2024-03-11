@@ -8,11 +8,11 @@ def SortLista(lista):
         random= r.sample(lista,3)
         lista1.append(random)
     return lista1
-(SortLista(lista))
-
+print(SortLista(lista))
+time.sleep(5)
 print('\033[2J')  # Código ANSI para limpiar la pantalla en sistemas Windows
 tiempo_total=0
-for x in lista:
+for x in lista1:
     print(f'Memorice la siguiente secuencia...')
     print(x)
     time.sleep(5)

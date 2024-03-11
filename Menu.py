@@ -1,4 +1,7 @@
 import time as t
+import random as r
+import ARMem as ar
+
 ListaJugadores = []
 def RegistroJugadores(nombre: str):
     ListaJugadores.append(nombre)
