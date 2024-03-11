@@ -1,10 +1,18 @@
 import ARMem as ar
 import time
-lista_juego=[[0,1,2,3,4],[4,3,2,1,0],[4,3,2,1,0],[0,2,1,4,3],[3,4,2,0,1]]
+import random as r
+lista=[0,1,2,3,4]
+lista1=[]
+def SortLista(lista):
+    for i in range(len(lista)):
+        random= r.sample(lista,3)
+        lista1.append(random)
+    return lista1
+(SortLista(lista))
 
 print('\033[2J')  # Código ANSI para limpiar la pantalla en sistemas Windows
 tiempo_total=0
-for x in lista_juego:
+for x in lista:
     print(f'Memorice la siguiente secuencia...')
     print(x)
     time.sleep(5)
