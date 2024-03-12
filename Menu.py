@@ -2,8 +2,8 @@ import time as t
 import random as r
 import ARMem as ar
 lista=[0,1,2,3,4]
-
 lista1=[]
+ListaJugadores = []
 
 def SortLista(lista,x):
     
@@ -16,7 +16,7 @@ def SortLista(lista,x):
 def Juego(index):
     tiempo_total=0
     for x in lista1:
-        
+        print('\033[2J')
         print("¡Memorice la siguiente secuencia!")
         print(x)
         t.sleep(2)
@@ -30,16 +30,19 @@ def Juego(index):
     print(f"El tiempo total del nive fue{tiempo_total}")
     t.sleep(5)
     print('\033[2J') 
+
 def Nivel1():
     SortLista(lista,3)
     Juego(1)
+
 def Nivel2():
     SortLista(lista,4)
     Juego(1)
+
 def Nivel3():
     SortLista(lista,5)
     Juego(1)
-ListaJugadores = []
+
 def RegistroJugadores(nombre: str):
     ListaJugadores.append(nombre)
 ListaJugadoresTiempo=[]
@@ -64,19 +67,19 @@ def Menu():
                 t.sleep(5)
                 RegistrarContacto()
             print('\033[2J') 
-            print("Nivel1")
+            print("Nivel 1")
             print("El juego comenzará en 3 segundos...")
             t.sleep(3)
             print('\033[2J') 
             Nivel1()  
             print('\033[2J') 
-            print("Nivel2")
+            print("Nivel 2")
             print("El juego comenzará en 3 segundos...")
             t.sleep(3)
             print('\033[2J')
             Nivel2()
             print('\033[2J')
-            print("Nivel3")
+            print("Nivel 3")
             print("El juego comenzará en 3 segundos...")
             t.sleep(3)
             print('\033[2J')
