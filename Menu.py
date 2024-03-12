@@ -2,7 +2,7 @@ import time as t
 import random as r
 import ARMem as ar
 lista=[0,1,2,3,4]
-x=3
+
 lista1=[]
 
 def SortLista(lista,x):
@@ -22,7 +22,7 @@ def Juego(index):
         t.sleep(2)
         print("¡Ordene los marcadores en el orden que se le indicó!")
         t.sleep(5)
-        print (chr(27) + "[2J")
+        print('\033[2J') 
         tiempo_partida=round(ar.start_sorting(x,flip_image=True,show_images=True, show_coordinates=False, show_ids=False, show_identified_marker=False)  ,2)
         tiempo_total += tiempo_partida
         print(f'Tiempo de partida: {tiempo_partida}s')
@@ -31,13 +31,13 @@ def Juego(index):
     t.sleep(5)
     print('\033[2J') 
 def Nivel1():
-    SortLista(lista,x)
+    SortLista(lista,3)
     Juego(1)
 def Nivel2():
-    SortLista(lista,x+1)
+    SortLista(lista,4)
     Juego(1)
 def Nivel3():
-    SortLista(lista,x+2)
+    SortLista(lista,5)
     Juego(1)
 ListaJugadores = []
 def RegistroJugadores(nombre: str):
@@ -57,6 +57,13 @@ def Menu():
         if opt == 1:
             RegistrarContacto()
         elif opt == 2:
+            if len(ListaJugadores) == 0:
+                print('\033[2J') 
+                print("No hay jugadores registrados")
+                print("Por favor a continuación registre el o los jugadores")
+                t.sleep(5)
+                RegistrarContacto()
+            print('\033[2J') 
             print("Nivel1")
             print("El juego comenzará en 3 segundos...")
             t.sleep(3)
@@ -75,23 +82,22 @@ def Menu():
             print('\033[2J')
             Nivel3()
             print('\033[2J')
-            
-            
+ 
         elif opt == 3:
             print("Gracias por jugar")
             t.sleep(5)
             break
-    print (chr(27) + "[2J")
+    print('\033[2J') 
 
 def RegistrarContacto():
-    print (chr(27) + "[2J")
+    print('\033[2J') 
     while True:
         name=input ("Ingrese el nombre del o los jugadores, cuando termine de escribir los nombres escriba salir:")
         if name.lower() == "salir":
             break
         elif name != "salir": 
             RegistroJugadores(name)
-    print (chr(27) + "[2J")
+    print('\033[2J') 
     print("Los jugadores registrados son: ", ListaJugadores)   
     t.sleep(5) 
 Menu()
