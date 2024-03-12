@@ -16,10 +16,13 @@ def SortLista(lista,x):
 
 def Juego(index):
     tiempo_total=0
+    i=0
     for x in lista1:
-        i=0
+        if i == len(ListaJugadores):
+            i=0
         print('\033[2J')
-        print(f"Es el turno del jugador {ListaJugadoresTiempo[i]}")
+        print(f"Es el turno del jugador {ListaJugadores[i]}")
+        i+=1
         print("¡Memorice la siguiente secuencia!")
         print(x)
         t.sleep(2)
