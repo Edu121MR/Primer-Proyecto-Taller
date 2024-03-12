@@ -47,7 +47,6 @@ def RegistroJugadores(nombre: str):
     ListaJugadores.append(nombre)
 ListaJugadoresTiempo=[]
 
-
 def Menu():
     while True:
         print (chr(27) + "[2J")
