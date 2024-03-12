@@ -4,6 +4,7 @@ import ARMem as ar
 lista=[0,1,2,3,4]
 lista1=[]
 ListaJugadores = []
+ListaJugadoresTiempo=[]
 
 def SortLista(lista,x):
     
@@ -16,7 +17,9 @@ def SortLista(lista,x):
 def Juego(index):
     tiempo_total=0
     for x in lista1:
+        i=0
         print('\033[2J')
+        print(f"Es el turno del jugador {ListaJugadoresTiempo[i]}")
         print("¡Memorice la siguiente secuencia!")
         print(x)
         t.sleep(2)
@@ -45,7 +48,7 @@ def Nivel3():
 
 def RegistroJugadores(nombre: str):
     ListaJugadores.append(nombre)
-ListaJugadoresTiempo=[]
+    ListaJugadoresTiempo.append(nombre)
 
 def Menu():
     while True:
