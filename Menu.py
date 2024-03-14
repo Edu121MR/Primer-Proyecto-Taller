@@ -2,7 +2,7 @@ import time as t
 import random as r
 import ARMem as ar
 
-frutas = ["Piña", "Cereza", "Uvas", "Pera", "Guanabana"]
+frutas = [" Piña ", " Cereza ", " Uvas ", " Pera ", " Guanabana "]
 lista = [0, 1, 2, 3, 4]
 lista1 = []
 ListaJugadores = []
@@ -20,11 +20,13 @@ def SortLista(lista, x):
     return lista1
 
 
-def Juego(index):
+def Juego(index, FrutasNombres="",g=""):
     tiempo_total = 0
     i = 0
     for x in lista1:
-        FrutasNombres = [ObtenerFruta(j) for j in x] 
+        for j in x:
+            g=ObtenerFruta(j)
+            FrutasNombres += g
         if i == len(ListaJugadores):
             i = 0
         print('\033[2J')
@@ -46,7 +48,7 @@ def Juego(index):
 
 
 def Nivel1():
-    SortLista(lista, 2)
+    SortLista(lista, 3)
     Juego(1)
 
 
