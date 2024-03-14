@@ -3,27 +3,30 @@ import random as r
 import ARMem as ar
 
 frutas = [" Piña ", " Cereza ", " Uvas ", " Pera ", " Guanabana "]
-lista = [0, 1, 2, 3, 4]
-lista1 = []
+lista1 = [0, 1, 2, 3, 4]
+lista2 = [0, 1, 2, 3, 4]
+lista3= [0, 1, 2, 3, 4]
 ListaJugadores = []
 ListaJugadoresTiempo = []
 
+def ObtenerFruta(t)->str:
+    return frutas[t]
 
-def ObtenerFruta(j):
-    return frutas[j]
-
-
-def SortLista(lista, x):
+def MezclarLista(lista, x)->list:
+    listaTemporal = []
     for i in range(len(ListaJugadores) * 5):
         random = r.sample(lista, x)
-        lista1.append(random)
-    return lista1
+        listaTemporal.append(random)
+    lista.clear()
+    lista.extend(listaTemporal)
+    return lista
 
-
-def Juego(index, FrutasNombres="",g=""):
+def Juego(listaMezclada:list): 
+    FrutasNombres = ""
+    g = ""
     tiempo_total = 0
     i = 0
-    for x in lista1:
+    for x in listaMezclada: 
         for j in x:
             g=ObtenerFruta(j)
             FrutasNombres += g
@@ -42,30 +45,26 @@ def Juego(index, FrutasNombres="",g=""):
         tiempo_total += tiempo_partida
         print(f'Tiempo de partida: {tiempo_partida}s')
         t.sleep(3)
+        FrutasNombres = ""
     print(f"El tiempo total del nive fue {tiempo_total}")
     t.sleep(5)
     print('\033[2J')
 
-
 def Nivel1():
-    SortLista(lista, 3)
-    Juego(1)
-
+    MezclarLista(lista1, 3)
+    Juego(lista1)
 
 def Nivel2():
-    SortLista(lista, 4)
-    Juego(1)
-
+    MezclarLista(lista2, 4)
+    Juego(lista2)
 
 def Nivel3():
-    SortLista(lista, 5)
-    Juego(1)
-
+    MezclarLista(lista3, 5)
+    Juego(lista3)
 
 def RegistroJugadores(nombre: str):
     ListaJugadores.append(nombre)
     ListaJugadoresTiempo.append(nombre)
-
 
 def Menu():
     while True:
@@ -74,11 +73,11 @@ def Menu():
         print("1) Registrar Jugadores")
         print("2) Jugar")
         print("3) Salir del Juego\n")
-        opt = int(input("Que funcion desea realizar: "))
+        opcion = int(input("Que funcion desea realizar: "))
 
-        if opt == 1:
+        if opcion == 1:
             RegistrarJugadores()
-        elif opt == 2:
+        elif opcion == 2:
             if len(ListaJugadores) == 0:
                 print('\033[2J')
                 print("No hay jugadores registrados")
@@ -105,24 +104,29 @@ def Menu():
             Nivel3()
             print('\033[2J')
 
-        elif opt == 3:
+
+        elif opcion == 3:
             print("Gracias por jugar")
             t.sleep(5)
             break
     print('\033[2J')
-
 
 def RegistrarJugadores():
     print('\033[2J')
     while True:
         name = input("Ingrese el nombre del o los jugadores, cuando termine de escribir los nombres escriba salir:")
         if name.lower() == "salir":
+            if len(ListaJugadores) == 0:
+                print('\033[2J')
+                print("No hay jugadores registrados")
+                print("Debe ingresar al menos un jugador para poder jugar")
+                t.sleep(5)
+                RegistrarJugadores()
             break
         elif name != "salir":
             RegistroJugadores(name)
     print('\033[2J')
-    print("Los jugadores registrados son: ", ListaJugadores)
+    print("El o los jugadores registrados son: ", ListaJugadores)
     t.sleep(5)
-
 
 Menu()
