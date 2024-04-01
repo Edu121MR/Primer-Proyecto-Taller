@@ -76,19 +76,19 @@ def Juego(ListaMezclada: list, Nivel: int):
 def Nivel1():
     """ Función que ejecuta el nivel 1
     """
-    MezclaNivel1 = MezclarLista(Lista1, 3)       #Se mezclan las frutas para el nivel 1
+    MezclaNivel1 = MezclarLista(Lista1, 1)       #Se mezclan las frutas para el nivel 1
     Juego(MezclaNivel1, 1)                       #Se ejecuta el juego para el nivel 1
 
 def Nivel2():
     """Función que ejecuta el nivel 2
     """
-    MezclaNivel2 = MezclarLista(Lista2, 4)       #Se mezclan las frutas para el nivel 2
+    MezclaNivel2 = MezclarLista(Lista2, 1)       #Se mezclan las frutas para el nivel 2
     Juego(MezclaNivel2, 2)                       #Se ejecuta el juego para el nivel 2
 
 def Nivel3():
     """Función que ejecuta el nivel 3
     """
-    MezclaNivel3 = MezclarLista(Lista3, 5)       #Se mezclan las frutas para el nivel 3
+    MezclaNivel3 = MezclarLista(Lista3, 1)       #Se mezclan las frutas para el nivel 3
     Juego(MezclaNivel3, 3)                       #Se ejecuta el juego para el nivel 3
 
 def ObtenerTiempoTotal(Jugador: str) -> float:
